@@ -222,7 +222,7 @@ const ffmpegTransCode = (): Promise<void> => {
         'copy',
         'output.mp4'
       ]);
-      const data = await ffmpegRef.value!.readFile('output.mp4');
+      const data = await ffmpegRef.value!.readFile('output.mp4') as TypedArray;
 
       outputVideoBlob.value = new Blob([data.buffer], { type: 'video/mp4' });
       outputVideoBlobUrl.value = window.URL.createObjectURL(outputVideoBlob.value)
