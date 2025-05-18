@@ -214,10 +214,10 @@ const ffmpegTransCode = (): Promise<void> => {
       await ffmpeg!.exec([
         '-ss',
         startTime,
+        '-to',
+        endTime,
         '-i',
         inputFileName,
-        '-t',
-        endTime,
         '-c',
         'copy',
         'output.mp4'
